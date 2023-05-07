@@ -1,11 +1,14 @@
 let resultats=[];
 
-async function getGallery(resultats) {
-
-    const reponse = await fetch("http://localhost:5678/api/works");
-    resultats = await reponse.json();
+async function fetchData() {
+    const response = await fetch("http://localhost:5678/api/works");
+    resultats = await response.json();
     console.log(resultats);
+    getGallery(resultats);
+}
+fetchData();
 
+async function getGallery(resultats) {
     for (let i = 0; i < resultats.length; i++){
 
         const travaux = resultats[i];
@@ -58,12 +61,18 @@ window.addEventListener('load', function() {
         button.addEventListener('click', function() {
             const clickedId = button.id;
             console.log('Clicked ID:', clickedId);
-
-            let imagesFiltrees = resultats.filter(function (image){
-                return image.categoryId == clickedId;
-            });
-            document.querySelector(".gallery").innerHTML ="";
-            getGallery(imagesFiltrees);
+            if (clickedId === "filterAll") {
+                document.querySelector(".gallery").innerHTML = "";
+                getGallery(resultats);
+            } else {    
+                let imagesFiltrees = resultats.filter(function (image){
+                    return image.categoryId == clickedId;
+                });
+                console.log(imagesFiltrees);
+                document.querySelector(".gallery").innerHTML ="";
+                getGallery(imagesFiltrees);
+            }
+            
         });
     });
 });
