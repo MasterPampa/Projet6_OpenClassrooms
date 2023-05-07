@@ -1,0 +1,21 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+.filter__buttons {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Work Sans";
+  border: 1px solid #1D6154;
+  border-radius: 60px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 19px;
+}
+.filter__selected {
+  color: white;
+  background-color: #1D6154;
+}/*# sourceMappingURL=buttons.css.map */

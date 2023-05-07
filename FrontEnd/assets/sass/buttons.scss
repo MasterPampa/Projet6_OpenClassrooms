@@ -1,0 +1,24 @@
+$mainGreen : #1D6154;
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 60px;
+
+    &__buttons{
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: 'Work Sans';
+        border: 1px solid $mainGreen;
+        border-radius: 60px;
+        text-align: center;
+        font-weight: 700;
+        line-height: 19px;
+    }
+    &__selected{
+        color: white;
+        background-color: $mainGreen;
+    }
+}
