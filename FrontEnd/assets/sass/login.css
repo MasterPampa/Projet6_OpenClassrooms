@@ -1,0 +1,46 @@
+main {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main form input {
+  border: none;
+  width: 379px;
+  height: 51px;
+  margin-top: 7px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-size: 25px;
+}
+main .login__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .login__buttons .button {
+  margin-top: 37px;
+  text-decoration: none;
+  width: 50%;
+}
+main .login__buttons .forget {
+  color: black;
+  margin-top: 28px;
+}
+
+footer {
+  font-size: 14px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+footer a {
+  color: black;
+  text-decoration: none;
+}/*# sourceMappingURL=login.css.map */

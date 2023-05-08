@@ -8,7 +8,7 @@ async function fetchData() {
 }
 fetchData();
 
-async function getGallery(resultats) {
+ function getGallery(resultats) {
     for (let i = 0; i < resultats.length; i++){
 
         const travaux = resultats[i];
@@ -26,7 +26,6 @@ async function getGallery(resultats) {
         figureElement.appendChild(figcaptionElement);
     }
 }
-getGallery(resultats);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -43,7 +42,7 @@ async function getCategories() {
         const filterElement = document.createElement("div");
 
         filterElement.id = "" + categories.id;
-        filterElement.classList.add("filter__buttons");
+        filterElement.classList.add("button");
         filterElement.textContent = categories.name;
 
         sectionCategories.appendChild(filterElement);
@@ -55,7 +54,7 @@ getCategories();
 
 window.addEventListener('load', function() {
 
-    const filterButtons = document.querySelectorAll('.filter__buttons');
+    const filterButtons = document.querySelectorAll('.button');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
