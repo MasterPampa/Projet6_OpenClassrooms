@@ -11,13 +11,16 @@
 	<link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/sass/buttons.css">
     <link rel="stylesheet" href="../assets/sass/login.css">
+	<script src="../assets/scripts/login.js"></script>
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul class="nav">
-			<li>projets</li>
+			<a class="nav__login" href="../index.html">
+				<li>projets</li>
+			</a>
 			<li>contact</li>
 			<a class="nav__login"href="#">
 				<li>login</li>
@@ -29,17 +32,22 @@
 <main>
     <h2>Log In</h2>
     <section class="login">
-        <form>
+        <form method="post" id="login">
             <label for="username">E-mail</label>
             <br>
-            <input type="text" id="username" name="username" autocomplete="off"><br>
-          
+            <input type="text" id="username" name="username" autocomplete="off">
+			<br>
+			<span id="usernameError"></span>
+			<br>
             <label for="password">Mot de passe</label>
             <br>
-            <input type="password" id="password" name="password" autocomplete="off"><br>
+            <input type="password" id="password" name="password" autocomplete="off">
+			<br>
+			<span id="passwordError"></span>
+			<br>
+			<input type="submit" id="submit" value="Se connecter"> 
         </form>
-        <div class="login__buttons">
-            <a href="#" class="button selected" id="submit">Se connecter</a>
+        <div class="login__alts">
             <a class="forget" href="#">Mot de passe oublié</a>
         </div>
     </section>

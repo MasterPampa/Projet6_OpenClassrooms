@@ -14,22 +14,22 @@ main form input {
   border: none;
   width: 379px;
   height: 51px;
-  margin-top: 7px;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
   font-size: 25px;
 }
-main .login__buttons {
+main form #submit {
+  font-size: 14px;
+}
+main form label {
+  margin-top: 30px;
+}
+main .login__alts {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-main .login__buttons .button {
-  margin-top: 37px;
-  text-decoration: none;
-  width: 50%;
-}
-main .login__buttons .forget {
+main .login__alts .forget {
   color: black;
   margin-top: 28px;
 }
