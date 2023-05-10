@@ -43,7 +43,10 @@ function getCategories(categoriesListe) {
 
         sectionCategories.appendChild(filterElement);
     }
-    filterGallery();
+    const logged = sessionStorage.getItem('accessToken');
+    if (!logged){
+        filterGallery();
+    }
 }
 
 function filterGallery(){
@@ -51,16 +54,24 @@ function filterGallery(){
     const filterButtons = document.querySelectorAll('.button');
 
     filterButtons.forEach(button => {
+
         button.addEventListener('click', function() {
             const clickedId = button.id;
             console.log('Clicked ID:', clickedId);
+
+            filterButtons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
             if (clickedId === "filterAll") {
                 document.querySelector(".gallery").innerHTML = "";
+                button.classList.add('selected');
                 getGallery(resultats);
             } else {    
                 let imagesFiltrees = resultats.filter(function (image){
                     return image.categoryId == clickedId;
                 });
+                button.classList.add('selected');
                 console.log(imagesFiltrees);
                 document.querySelector(".gallery").innerHTML ="";
                 getGallery(imagesFiltrees);

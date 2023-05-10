@@ -1,0 +1,103 @@
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modale{
+    visibility: hidden;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    a{
+        text-decoration: none;
+    }
+    &__window{
+        overflow-y: auto;
+        width: 630px;
+        height: 731px;
+        border-radius: 10px;
+        background-color: white;
+        .close{
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            position: relative;
+            top: 30px;
+            left: 580px;
+        }
+        h2{
+            color: black;
+            font-weight: 400;
+            font-size: 26px;
+            font-family: 'Work Sans';
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            padding-bottom: 46px;
+        }
+    }
+    &__boutons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Syne';
+        span{
+            width: 70%;
+            border-bottom: 1px solid #B3B3B3;
+            margin-bottom: 20px;
+            margin-top: 20px; 
+
+        };
+        .button{
+            margin-bottom: 23px;
+        }
+        .delete{
+            color: red;
+        }
+    }
+    &__gallery{
+        figure{
+            position: relative;
+            padding-bottom: 10px;
+            &:hover > .fleche{
+                visibility: visible;
+            }
+        }
+        img{
+            width: 78px;
+        }
+        gap: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 15%;
+        .icone{
+            position: absolute;
+            top: 5px;
+            left: 55px;
+            color: white;
+            background-color: black;
+            z-index: 1000;
+            width: 17px;
+            height: 17px;
+            border-radius: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
+        .fleche{
+            left: 35px;
+            top: 5px;
+            visibility: hidden;
+        }
+    }
+}

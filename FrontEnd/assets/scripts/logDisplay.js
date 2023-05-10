@@ -19,7 +19,6 @@ window.addEventListener('load', function() {
 
         const filters = document.getElementById('filters');
         const projets = document.getElementById('projets');
-        console.log(projets)
         filters.classList.remove('filter');
         filters.classList.add('hidden');
         projets.classList.add('space');

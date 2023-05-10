@@ -10,11 +10,27 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/sass/buttons.css">
+	<link rel="stylesheet" href="./assets/sass/modale.css">
 	<script src="./assets/scripts/logDisplay.js" defer></script>
-	<script src="./assets/scripts/gallery.js" defer></script>
+	<script src="./assets/scripts/gallery.js"></script>
+	<script src="./assets/scripts/modaleGallery.js" defer></script>
 	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div id="modale" class="modale flexCenter">
+		<div class="modale__window">
+			<i class="close fa-solid fa-lg fa-xmark"></i>
+			<h2>Galerie photo</h2>
+			<div id="galleryModale" class="modale__gallery">
+				<!-- La gallery dynamique de la modale s'affiche ici-->
+			</div>
+			<div class="modale__boutons">
+				<span></span>
+				<a href="#" class="button selected">Ajouter une photo</a>
+				<a class="delete" href="#">Supprimer la galerie</a>
+			</div>
+		</div>
+	</div>
 <header>
 	<div id="edition" class="hidden">
 		<a href="#" class="modifier">
@@ -63,12 +79,11 @@
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
-		
 	</section>
 	<section id="portfolio">
 		<div class="title">
 			<h2 id="projets">Mes Projets</h2>
-			<a href="#" class="modifier">
+			<a href="#" class="modifier" id="afficherModale">
 				<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
 				<p>modifier</p>
 			</a>

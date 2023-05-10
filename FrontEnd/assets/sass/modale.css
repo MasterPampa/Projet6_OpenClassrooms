@@ -1,0 +1,102 @@
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modale {
+  visibility: hidden;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+}
+.modale a {
+  text-decoration: none;
+}
+.modale__window {
+  overflow-y: auto;
+  width: 630px;
+  height: 731px;
+  border-radius: 10px;
+  background-color: white;
+}
+.modale__window .close {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  position: relative;
+  top: 30px;
+  left: 580px;
+}
+.modale__window h2 {
+  color: black;
+  font-weight: 400;
+  font-size: 26px;
+  font-family: "Work Sans";
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding-bottom: 46px;
+}
+.modale__boutons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Syne";
+}
+.modale__boutons span {
+  width: 70%;
+  border-bottom: 1px solid #B3B3B3;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.modale__boutons .button {
+  margin-bottom: 23px;
+}
+.modale__boutons .delete {
+  color: red;
+}
+.modale__gallery {
+  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 15%;
+}
+.modale__gallery figure {
+  position: relative;
+  padding-bottom: 10px;
+}
+.modale__gallery figure:hover > .fleche {
+  visibility: visible;
+}
+.modale__gallery img {
+  width: 78px;
+}
+.modale__gallery .icone {
+  position: absolute;
+  top: 5px;
+  left: 55px;
+  color: white;
+  background-color: black;
+  z-index: 1000;
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modale__gallery .icone:hover {
+  background-color: white;
+  color: black;
+}
+.modale__gallery .fleche {
+  left: 35px;
+  top: 5px;
+  visibility: hidden;
+}/*# sourceMappingURL=modale.css.map */
