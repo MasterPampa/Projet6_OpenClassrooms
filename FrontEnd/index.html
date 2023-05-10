@@ -11,38 +11,69 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/sass/buttons.css">
 	<script src="./assets/scripts/gallery.js"></script>
+	<script src="./assets/scripts/admin.js"></script>
+	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav>
-		<ul class="nav">
-			<a class="nav__login" href="./index.html">
-				<li>projets</li>
-			</a>			
-			<li>contact</li>
-			<a class="nav__login" href="./pages/login.html">
-				<li>login</li>
-			</a>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
+	<div class="edition">
+		<a href="#" class="modifier">
+			<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
+			<p>Mode édition</p>
+		</a>
+		<a href="#" class="publier">
+			<p>publier les changements</p>
+		</a>
+	</div>
+	<div class="header__main contenu">
+		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<nav>
+			<ul class="nav">
+				<a class="nav__login" href="./index.html">
+					<li>projets</li>
+				</a>			
+				<li>contact</li>
+				<a class="nav__login" id="login" href="./pages/login.html">
+					<li>login</li>
+				</a>
+				<a class="nav__login" id="logout" href="#">
+					<li>logout</li>
+				</a>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 <main>
 	<section id="introduction">
 		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
+			<img src="./assets/images/sophie-bluel.png" alt=""> 
+			<a href="#" class="modifier">
+				<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
+				<p>modifier</p>
+			</a>
 		</figure>
 		<article>
+			<a href="#" class="modifier">
+				<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
+				<p>modifier</p>
+			</a>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
+		
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<div class="filter">
+		<div class="title">
+			<h2 id="projets">Mes Projets</h2>
+			<a href="#" class="modifier">
+				<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
+				<p>modifier</p>
+			</a>
+		</div>
+		<div id="filters" class="filter">
 			<div id="filterAll" class="button">
 				<p>Tous</p>
 			</div>
