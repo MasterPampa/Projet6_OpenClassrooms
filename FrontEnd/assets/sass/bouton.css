@@ -6,7 +6,7 @@
   margin-bottom: 60px;
 }
 
-.button {
+.bouton {
   padding: 10px 20px;
   font-size: 16px;
   font-family: "Work Sans";
@@ -17,7 +17,7 @@
   line-height: 19px;
 }
 
-.selected {
+.selection {
   color: white;
   background-color: #1D6154;
-}/*# sourceMappingURL=buttons.css.map */
+}/*# sourceMappingURL=bouton.css.map */

@@ -29,6 +29,7 @@
             position: relative;
             top: 30px;
             left: 580px;
+            cursor: pointer;
         }
         h2{
             color: black;
@@ -53,7 +54,7 @@
             margin-top: 20px; 
 
         };
-        .button{
+        .bouton{
             margin-bottom: 23px;
         }
         .delete{
@@ -98,6 +99,10 @@
             left: 35px;
             top: 5px;
             visibility: hidden;
+        }
+        figcaption:hover{
+            color: #B1663C;
+            cursor: pointer;
         }
     }
 }

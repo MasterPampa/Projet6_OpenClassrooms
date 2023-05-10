@@ -9,28 +9,28 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<link rel="stylesheet" href="./assets/sass/buttons.css">
+	<link rel="stylesheet" href="./assets/sass/bouton.css">
 	<link rel="stylesheet" href="./assets/sass/modale.css">
 	<script src="./assets/scripts/logDisplay.js" defer></script>
 	<script src="./assets/scripts/gallery.js"></script>
 	<script src="./assets/scripts/modaleGallery.js" defer></script>
 	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
-<body>
-	<div id="modale" class="modale flexCenter">
-		<div class="modale__window">
-			<i class="close fa-solid fa-lg fa-xmark"></i>
-			<h2>Galerie photo</h2>
-			<div id="galleryModale" class="modale__gallery">
-				<!-- La gallery dynamique de la modale s'affiche ici-->
-			</div>
-			<div class="modale__boutons">
-				<span></span>
-				<a href="#" class="button selected">Ajouter une photo</a>
-				<a class="delete" href="#">Supprimer la galerie</a>
-			</div>
+<div id="modale" class="modale flexCenter">
+	<div class="modale__window">
+		<i class="close fa-solid fa-lg fa-xmark"></i>
+		<h2>Galerie photo</h2>
+		<div id="galleryModale" class="modale__gallery">
+			<!-- La gallery dynamique de la modale s'affiche ici-->
+		</div>
+		<div class="modale__boutons">
+			<span></span>
+			<a href="#" class="bouton selection">Ajouter une photo</a>
+			<a class="delete" href="#">Supprimer la galerie</a>
 		</div>
 	</div>
+</div>
+<body>
 <header>
 	<div id="edition" class="hidden">
 		<a href="#" class="modifier">
@@ -89,7 +89,7 @@
 			</a>
 		</div>
 		<div id="filters" class="filter">
-			<div id="filterAll" class="button">
+			<div id="filterAll" class="bouton selection">
 				<p>Tous</p>
 			</div>
 		</div>

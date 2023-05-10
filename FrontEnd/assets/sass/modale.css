@@ -31,6 +31,7 @@
   position: relative;
   top: 30px;
   left: 580px;
+  cursor: pointer;
 }
 .modale__window h2 {
   color: black;
@@ -54,7 +55,7 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
-.modale__boutons .button {
+.modale__boutons .bouton {
   margin-bottom: 23px;
 }
 .modale__boutons .delete {
@@ -99,4 +100,8 @@
   left: 35px;
   top: 5px;
   visibility: hidden;
+}
+.modale__gallery figcaption:hover {
+  color: #B1663C;
+  cursor: pointer;
 }/*# sourceMappingURL=modale.css.map */

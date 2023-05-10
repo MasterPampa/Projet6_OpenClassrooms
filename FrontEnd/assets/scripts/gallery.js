@@ -41,7 +41,7 @@ function getCategories(categoriesListe) {
         const filterElement = document.createElement("div");
 
         filterElement.id = "" + categories.id;
-        filterElement.classList.add("button");
+        filterElement.classList.add("bouton");
         filterElement.textContent = categories.name;
 
         sectionCategories.appendChild(filterElement);
@@ -51,27 +51,27 @@ function getCategories(categoriesListe) {
 
 function filterGallery(){
     
-    const filterButtons = document.querySelectorAll('.button');
+    const filtreBouton = document.querySelectorAll('.bouton');
 
-    filterButtons.forEach(button => {
+    filtreBouton.forEach(bouton => {
 
-        button.addEventListener('click', function() {
-            const clickedId = button.id;
+        bouton.addEventListener('click', function() {
+            const clickedId = bouton.id;
             console.log('Clicked ID:', clickedId);
 
-            filterButtons.forEach(btn => {
-                btn.classList.remove('selected');
+            filtreBouton.forEach(bouton => {
+                bouton.classList.remove('selection');
             });
 
             if (clickedId === "filterAll") {
                 document.querySelector(".gallery").innerHTML = "";
-                button.classList.add('selected');
+                bouton.classList.add('selection');
                 getGallery(resultats);
             } else {    
                 let imagesFiltrees = resultats.filter(function (image){
                     return image.categoryId == clickedId;
                 });
-                button.classList.add('selected');
+                bouton.classList.add('selection');
                 console.log(imagesFiltrees);
                 document.querySelector(".gallery").innerHTML ="";
                 getGallery(imagesFiltrees);
