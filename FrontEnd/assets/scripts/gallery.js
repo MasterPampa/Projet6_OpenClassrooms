@@ -1,14 +1,18 @@
 let resultats=[];
+let categoriesListe=[];
 
 async function fetchData() {
     const response = await fetch("http://localhost:5678/api/works");
     resultats = await response.json();
-    console.log(resultats);
+    const responseCat = await fetch("http://localhost:5678/api/categories");
+    categoriesListe = await responseCat.json();
+    
     getGallery(resultats);
+    getCategories(categoriesListe);
 }
 fetchData();
 
- function getGallery(resultats) {
+function getGallery(resultats) {
     for (let i = 0; i < resultats.length; i++){
 
         const travaux = resultats[i];
@@ -26,49 +30,41 @@ fetchData();
     }
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-window.addEventListener('load', function() {
+function getCategories(categoriesListe) {
+    for (let i = 0; i < categoriesListe.length; i++) {
+        let categories = categoriesListe[i];
 
-    async function getCategories() {
-        const reponse = await fetch("http://localhost:5678/api/categories");
-        categoriesListe = await reponse.json();
+        const sectionCategories = document.querySelector(".filter");
+        const filterElement = document.createElement("div");
 
-        for (let i = 0; i < categoriesListe.length; i++){
+        filterElement.id = "" + categories.id;
+        filterElement.classList.add("button");
+        filterElement.textContent = categories.name;
 
-            categories = categoriesListe[i];
-
-            const sectionCategories = document.querySelector(".filter");
-            const filterElement = document.createElement("div");
-
-            filterElement.id = "" + categories.id;
-            filterElement.classList.add("button");
-            filterElement.textContent = categories.name;
-
-            sectionCategories.appendChild(filterElement);
-        }
+        sectionCategories.appendChild(filterElement);
     }
+    filterGallery();
+}
 
-    getCategories().then(() => {
-
-        const filterButtons = document.querySelectorAll('.button');
+function filterGallery(){
     
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const clickedId = button.id;
-                console.log('Clicked ID:', clickedId);
-                if (clickedId === "filterAll") {
-                    document.querySelector(".gallery").innerHTML = "";
-                    getGallery(resultats);
-                } else {    
-                    let imagesFiltrees = resultats.filter(function (image){
-                        return image.categoryId == clickedId;
-                    });
-                    console.log(imagesFiltrees);
-                    document.querySelector(".gallery").innerHTML ="";
-                    getGallery(imagesFiltrees);
-                }
-            });
+    const filterButtons = document.querySelectorAll('.button');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const clickedId = button.id;
+            console.log('Clicked ID:', clickedId);
+            if (clickedId === "filterAll") {
+                document.querySelector(".gallery").innerHTML = "";
+                getGallery(resultats);
+            } else {    
+                let imagesFiltrees = resultats.filter(function (image){
+                    return image.categoryId == clickedId;
+                });
+                console.log(imagesFiltrees);
+                document.querySelector(".gallery").innerHTML ="";
+                getGallery(imagesFiltrees);
+            }
         });
     });
-});
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}

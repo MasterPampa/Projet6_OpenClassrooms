@@ -35,7 +35,6 @@ window.addEventListener('load', function() {
 
     } else {
         console.log('notLogged!'),
-
         logout.classList.add('hidden');
     }
 });
