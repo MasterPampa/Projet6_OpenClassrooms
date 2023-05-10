@@ -1,15 +1,22 @@
 const afficherModale = document.getElementById('afficherModale');
 const modale = document.getElementById('modale');
-const fermerModale = document.querySelector('.fa-xmark');
+const fermerCroix = document.querySelector('.fa-xmark');
+const fenetreModale = document.querySelector('.modale__window');
 
 afficherModale.addEventListener('click', function(){
     modale.style.visibility = 'visible';
     document.getElementById('galleryModale').innerHTML="";
     afficherProjets();
 });
-fermerModale.addEventListener('click', function(){
-    modale.style.visibility = 'hidden';
+fermerCroix.addEventListener('click', function(){
 });
+modale.addEventListener('click',function(e){
+    if (e.target === modale ){
+        modale.style.visibility = 'hidden';
+    }
+});
+
+
 
 function afficherProjets(){
     const modaleGallery = document.getElementById('galleryModale');
@@ -28,7 +35,6 @@ function afficherProjets(){
         supprIcone.classList.add('fa-solid', 'fa-trash-can', 'fa-sm', 'icone');
         const flecheIcone = document.createElement('i');
         flecheIcone.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'fa-sm','icone','fleche');
-
 
         modaleGalleryImage.src = travaux.imageUrl;
         modaleGallery.appendChild(figureModale);

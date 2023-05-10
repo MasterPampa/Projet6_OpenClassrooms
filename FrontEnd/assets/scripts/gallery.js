@@ -1,5 +1,6 @@
 let resultats=[];
 let categoriesListe=[];
+const logged = sessionStorage.getItem('accessToken');
 
 async function fetchData() {
     const response = await fetch("http://localhost:5678/api/works");
@@ -8,7 +9,9 @@ async function fetchData() {
     categoriesListe = await responseCat.json();
     
     getGallery(resultats);
-    getCategories(categoriesListe);
+    if (logged === null){
+        getCategories(categoriesListe);
+    }
 }
 fetchData();
 
@@ -43,10 +46,7 @@ function getCategories(categoriesListe) {
 
         sectionCategories.appendChild(filterElement);
     }
-    const logged = sessionStorage.getItem('accessToken');
-    if (!logged){
-        filterGallery();
-    }
+    filterGallery();
 }
 
 function filterGallery(){
@@ -62,7 +62,7 @@ function filterGallery(){
             filterButtons.forEach(btn => {
                 btn.classList.remove('selected');
             });
-            
+
             if (clickedId === "filterAll") {
                 document.querySelector(".gallery").innerHTML = "";
                 button.classList.add('selected');
