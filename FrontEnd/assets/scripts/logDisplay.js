@@ -1,6 +1,8 @@
 window.addEventListener('load', function() {
     
-    const modifier = document.querySelectorAll('.modifier');
+    let banniereEdition = document.getElementById('edition');
+    let banniere = document.getElementById('banniere');
+    let modifier = document.querySelectorAll('.modifier');
     let logout = document.getElementById('logout');
     let login = document.getElementById('login');
     const logged = sessionStorage.getItem('accessToken');
@@ -20,16 +22,20 @@ window.addEventListener('load', function() {
         console.log(projets)
         filters.classList.remove('filter');
         filters.classList.add('hidden');
-        projets.classList.add('space')
+        projets.classList.add('space');
 
-        
+        modifier.forEach(modifier => {
+            modifier.style.display = 'flex';
+        });
+
+        banniereEdition.classList.add('edition');
+        banniereEdition.classList.remove('hidden');
+        banniere.classList.add("contenu");
+
+
     } else {
         console.log('notLogged!'),
 
         logout.classList.add('hidden');
-
-        modifier.forEach(modifier => {
-            modifier.style.display = 'none';
-        });
     }
 });

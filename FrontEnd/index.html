@@ -10,13 +10,13 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/sass/buttons.css">
-	<script src="./assets/scripts/gallery.js"></script>
-	<script src="./assets/scripts/admin.js"></script>
+	<script src="./assets/scripts/logDisplay.js" defer></script>
+	<script src="./assets/scripts/gallery.js" defer></script>
 	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-	<div class="edition">
+	<div id="edition" class="hidden">
 		<a href="#" class="modifier">
 			<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
 			<p>Mode édition</p>
@@ -25,7 +25,7 @@
 			<p>publier les changements</p>
 		</a>
 	</div>
-	<div class="header__main contenu">
+	<div id="banniere" class="header__main">
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul class="nav">
@@ -48,7 +48,7 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt=""> 
-			<a href="#" class="modifier">
+			<a href="#" class="modifier hidden">
 				<i class="icon fa-regular fa-lg fa-pen-to-square"></i>
 				<p>modifier</p>
 			</a>
