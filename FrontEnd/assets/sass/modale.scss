@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .modale{
     visibility: hidden;
     z-index: 999;
@@ -72,10 +71,10 @@
         img{
             width: 78px;
         }
-        gap: 6px;
+        gap: 12.5px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding: 0 15%;
         .icone{
             position: absolute;
@@ -103,6 +102,99 @@
         figcaption:hover{
             color: #B1663C;
             cursor: pointer;
+        }
+    }
+    &__ajout{
+        position: fixed;
+        width: 630px;
+        height: 670px;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        .enTete{
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+            i:hover{
+                cursor: pointer;
+            }
+        }
+        h2{
+            display: flex;
+            justify-content: center;
+            color: black;
+            margin-bottom: 30px;
+            font-weight: 400;
+            font-family: 'Work Sans';
+        }
+        form{
+            margin: 0 15%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .importStyle{
+                width: 100%;
+                height: 169px;
+                background-color: #E8F1F7;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 30px;
+                .importIcone{
+                    font-size: 5rem;
+                    color: #B9C5CC;
+                }
+                input{
+                    visibility: hidden;
+                    width: 0;
+                    height: 0;
+                }
+                p{
+                    font-size: 10px;
+                    color: #444444;
+                }
+                .bouton{
+                    color: #306685;
+                    background-color: #CBD6DC;
+                    border-color: #CBD6DC;
+                    margin: 20px 0 7px 0;
+                }
+            }
+            label{
+                font-family: 'Work Sans';
+                font-weight: 500;
+                font-size: 15px;
+                color: #3D3D3D;
+            }
+            input{
+            border: none;
+            width: 100%;
+            height: 51px;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+            font-size: 25px;
+            }
+            select{
+            border: none;
+            width: 100%;
+            height: 51px;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+            font-size: 25px;
+            }
+        }
+        span{
+            width: 100%;
+            border-bottom: 1px solid #B3B3B3;
+            margin-bottom: 10px;
+            margin-top: 30px; 
+        };
+        .bouton{
+            width: 50%;
+            margin: auto;
+            background-color:#A7A7A7;
+            border-color: #A7A7A7;
+            color: white;
         }
     }
 }

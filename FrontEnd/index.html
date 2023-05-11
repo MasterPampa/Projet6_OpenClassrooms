@@ -25,9 +25,38 @@
 		</div>
 		<div class="modale__boutons">
 			<span></span>
-			<a href="#" class="bouton selection">Ajouter une photo</a>
+			<a href="#" id="ajoutProjetBouton" class="bouton selection">Ajouter une photo</a>
 			<a class="delete" href="#">Supprimer la galerie</a>
 		</div>
+	</div>
+	<div id="ajoutProjetModale" class="modale__ajout">
+		<div class="enTete">
+			<i id="retour" class="fa-solid fa-lg fa-arrow-left"></i>
+			<i class="close fa-solid fa-lg fa-xmark"></i>
+		</div>
+		<h2>Ajout Photo</h2>
+		<form>
+			<div class="importStyle">
+			<label><i class="importIcone fa-sharp fa-regular fa-image"></i></label>
+			<input type="file">
+			<a class="bouton" href="#">+ Ajouter photo</a>
+			<p>jpg, png : 4mo max</p>
+			</div>
+			
+			<label>Titre</label>
+			<br>
+			<input type="text">
+			<br>
+			<label>Catégorie</label>
+			<br>
+			<select id="choixCategories">
+				<!--Import des choix via fetch-->
+			</select>
+			<br>
+			<span></span>
+			<br>
+			<a href="#" id="envoiProjet" class="bouton">Valider</a>
+		</form>
 	</div>
 </div>
 <body>

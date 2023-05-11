@@ -1,27 +1,31 @@
 const afficherModale = document.getElementById('afficherModale');
 const modale = document.getElementById('modale');
-const fermerCroix = document.querySelector('.fa-xmark');
+const fermerCroix = document.querySelectorAll('.fa-xmark');
 const fenetreModale = document.querySelector('.modale__window');
-
+const modaleGallery = document.getElementById('galleryModale');
 
 afficherModale.addEventListener('click', function(){
     modale.style.visibility = 'visible';
     document.getElementById('galleryModale').innerHTML="";
     afficherProjets();
+    fenetreModale.style.visibility = 'visible';
 });
-fermerCroix.addEventListener('click', function(){
-    modale.style.visibility = 'hidden';
+
+fermerCroix.forEach(element => {
+    element.addEventListener('click', function(){
+        fermerModale()
+    });
 });
+
 modale.addEventListener('click',function(e){
     if (e.target === modale ){
-        modale.style.visibility = 'hidden';
+        fermerModale()
     }
 });
 
 
 let supprIcone = "";
 function afficherProjets(){
-    const modaleGallery = document.getElementById('galleryModale');
 
     for (let i = 0; i < resultats.length; i++){
 
@@ -34,7 +38,7 @@ function afficherProjets(){
         
         supprIcone = document.createElement('i');
         supprIcone.classList.add('fa-solid', 'fa-trash-can', 'fa-sm', 'icone');
-        figureModale.id = i;
+        figureModale.id = travaux.id;
         const flecheIcone = document.createElement('i');
         flecheIcone.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'fa-sm','icone','fleche');
     
@@ -50,23 +54,36 @@ function afficherProjets(){
 }
 
 let galleryModale = document.getElementById('galleryModale');
+let projetSupprId = "";
 
 galleryModale.addEventListener('click', function(e) {
   if (e.target.classList.contains('fa-trash-can')) {
     const projetId = e.target.parentNode;
-    projetId.remove();
-    updateListe();
+    projetSupprId = projetId.id;
+    suppressionProjet();
   }
 });
 
-let projetRestant = [];
+const ajoutProjetBouton = document.getElementById('ajoutProjetBouton');
+const ajoutProjetModale = document.getElementById('ajoutProjetModale');
+let ajoutProjetVisible = ajoutProjetModale.style.visibility='hidden';
 
-function updateListe() {
-    projetRestant =[];
-    const projetsListe = galleryModale.querySelectorAll('figure')
-    projetsListe.forEach(element => {
-        projetRestant.push(element.id);
+ajoutProjetBouton.addEventListener('click', function(){
+    fenetreModale.style.visibility ='hidden';
+    ajoutProjetModale.style.visibility='visible';
+});
+
+if (ajoutProjetVisible.visibility = 'visible'){
+    const boutonRetour = document.getElementById('retour');
+    console.log(boutonRetour);
+    boutonRetour.addEventListener('click', function(){
+        ajoutProjetModale.style.visibility = 'hidden';
+        fenetreModale.style.visibility = 'visible';
     });
-    console.log(projetRestant);
-}
+};
 
+function fermerModale(){
+    modale.style.visibility = 'hidden';
+    ajoutProjetModale.style.visibility = 'hidden';
+    fenetreModale.style.visibility = 'hidden';
+}

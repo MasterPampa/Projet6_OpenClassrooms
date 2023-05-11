@@ -9,14 +9,12 @@ main{
         display: flex;
         flex-direction: column;
         justify-content: center;
-
         input{
             border: none;
             width: 379px;
             height: 51px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
             font-size: 25px;
-            
         }
         #submit{
             font-size: 14px;

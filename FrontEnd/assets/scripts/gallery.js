@@ -1,6 +1,7 @@
 let resultats=[];
 let categoriesListe=[];
 const logged = sessionStorage.getItem('accessToken');
+let sectionGallery ="";
 
 async function fetchData() {
     const response = await fetch("http://localhost:5678/api/works");
@@ -8,7 +9,10 @@ async function fetchData() {
     const responseCat = await fetch("http://localhost:5678/api/categories");
     categoriesListe = await responseCat.json();
     
+    sectionGallery.innerHTML="";
     getGallery(resultats);
+    afficherProjets();
+
     if (logged === null){
         getCategories(categoriesListe);
     }
@@ -20,7 +24,7 @@ function getGallery(resultats) {
 
         const travaux = resultats[i];
 
-        const sectionGallery = document.querySelector(".gallery");
+        sectionGallery = document.querySelector(".gallery");
         const figureElement = document.createElement("figure");
         const imageElement = document.createElement("img");
         imageElement.src = travaux.imageUrl;
@@ -78,4 +82,20 @@ function filterGallery(){
             }
         });
     });
+}
+
+
+async function suppressionProjet() {
+    const accessToken = sessionStorage.getItem('accessToken');
+    
+    const response = await fetch('http://localhost:5678/api/works/'+projetSupprId, {
+        method:'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        }
+    });
+    if (response.ok){
+        modaleGallery.innerHTML="";
+        fetchData();
+    }
 }

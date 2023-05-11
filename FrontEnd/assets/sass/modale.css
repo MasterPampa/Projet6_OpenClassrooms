@@ -62,10 +62,10 @@
   color: red;
 }
 .modale__gallery {
-  gap: 6px;
+  gap: 12.5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 15%;
 }
 .modale__gallery figure {
@@ -104,4 +104,97 @@
 .modale__gallery figcaption:hover {
   color: #B1663C;
   cursor: pointer;
+}
+.modale__ajout {
+  position: fixed;
+  width: 630px;
+  height: 670px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.modale__ajout .enTete {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+.modale__ajout .enTete i:hover {
+  cursor: pointer;
+}
+.modale__ajout h2 {
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-family: "Work Sans";
+}
+.modale__ajout form {
+  margin: 0 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.modale__ajout form .importStyle {
+  width: 100%;
+  height: 169px;
+  background-color: #E8F1F7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.modale__ajout form .importStyle .importIcone {
+  font-size: 5rem;
+  color: #B9C5CC;
+}
+.modale__ajout form .importStyle input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.modale__ajout form .importStyle p {
+  font-size: 10px;
+  color: #444444;
+}
+.modale__ajout form .importStyle .bouton {
+  color: #306685;
+  background-color: #CBD6DC;
+  border-color: #CBD6DC;
+  margin: 20px 0 7px 0;
+}
+.modale__ajout form label {
+  font-family: "Work Sans";
+  font-weight: 500;
+  font-size: 15px;
+  color: #3D3D3D;
+}
+.modale__ajout form input {
+  border: none;
+  width: 100%;
+  height: 51px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-size: 25px;
+}
+.modale__ajout form select {
+  border: none;
+  width: 100%;
+  height: 51px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-size: 25px;
+}
+.modale__ajout span {
+  width: 100%;
+  border-bottom: 1px solid #B3B3B3;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.modale__ajout .bouton {
+  width: 50%;
+  margin: auto;
+  background-color: #A7A7A7;
+  border-color: #A7A7A7;
+  color: white;
 }/*# sourceMappingURL=modale.css.map */
