@@ -137,6 +137,7 @@
   align-items: flex-start;
 }
 .modale__ajout form .importStyle {
+  position: relative;
   width: 100%;
   height: 169px;
   background-color: #E8F1F7;
@@ -164,6 +165,18 @@
   background-color: #CBD6DC;
   border-color: #CBD6DC;
   margin: 20px 0 7px 0;
+}
+.modale__ajout form .importStyle #imagePreviewContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8F1F7;
+}
+.modale__ajout form .importStyle #imagePreviewContainer #imagePreview {
+  height: 100%;
 }
 .modale__ajout form label {
   font-family: "Work Sans";

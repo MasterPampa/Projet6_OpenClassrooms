@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="./assets/sass/modale.css">
 	<script src="./assets/scripts/logDisplay.js" defer></script>
 	<script src="./assets/scripts/gallery.js"></script>
-	<script src="./assets/scripts/modaleGallery.js" defer></script>
+	<script src="./assets/scripts/modale.js" defer></script>
 	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
 <div id="modale" class="modale flexCenter">
@@ -38,9 +38,12 @@
 		<form>
 			<div class="importStyle">
 			<label><i class="importIcone fa-sharp fa-regular fa-image"></i></label>
-			<input type="file">
-			<a class="bouton" href="#">+ Ajouter photo</a>
+			<input id="inputLink" type="file" accept="image/jpeg, image/png" size="4194304" onchange="previewImage()">
+			<a id="boutonUpload" class="bouton" href="#" onclick="document.getElementById('inputLink').click()">+ Ajouter photo</a>
 			<p>jpg, png : 4mo max</p>
+			<div id="imagePreviewContainer">
+				<img id="imagePreview" src="#" alt="Aperçu de l'image">
+			</div>
 			</div>
 			
 			<label>Titre</label>

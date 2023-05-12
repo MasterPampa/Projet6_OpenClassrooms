@@ -41,7 +41,6 @@ function afficherProjets(){
         figureModale.id = travaux.id;
         const flecheIcone = document.createElement('i');
         flecheIcone.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'fa-sm','icone','fleche');
-    
 
         modaleGalleryImage.src = travaux.imageUrl;
         modaleGallery.appendChild(figureModale);
@@ -49,7 +48,6 @@ function afficherProjets(){
         figureModale.appendChild(editImage);
         figureModale.appendChild(supprIcone);
         figureModale.appendChild(flecheIcone);
-
     }
 }
 
@@ -79,6 +77,7 @@ if (ajoutProjetVisible.visibility = 'visible'){
     boutonRetour.addEventListener('click', function(){
         ajoutProjetModale.style.visibility = 'hidden';
         fenetreModale.style.visibility = 'visible';
+        unloadPreview();
     });
 };
 
@@ -86,4 +85,44 @@ function fermerModale(){
     modale.style.visibility = 'hidden';
     ajoutProjetModale.style.visibility = 'hidden';
     fenetreModale.style.visibility = 'hidden';
+    unloadPreview();
+}
+
+function getChoixCategories(){
+    for (let i = 0; i < categoriesListe.length; i++) {
+        let categories = categoriesListe[i];
+        let choixCategorieListe = document.getElementById('choixCategories');
+        const selectionCategorie = document.createElement("option");
+
+        choixCategorieListe.appendChild(selectionCategorie);
+        selectionCategorie.value = categories.value;
+        selectionCategorie.textContent = categories.name;
+    };
+};
+
+const previewContainer = document.getElementById("imagePreviewContainer");
+previewContainer.style.visibility = 'hidden';
+
+const input = document.getElementById('inputLink');
+const preview = document.getElementById("imagePreview");
+const boutonUpload = document.getElementById('boutonUpload');
+
+function previewImage() {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+      };
+        reader.readAsDataURL(input.files[0]);
+        previewContainer.style.visibility = 'visible';
+    } else {
+        preview.src = "#";
+        previewContainer.style.visibility = 'hidden';
+    }
+}
+
+function unloadPreview(){
+    input.value = '';
+    preview.src = '';
+    previewContainer.style.visibility = 'hidden';
 }

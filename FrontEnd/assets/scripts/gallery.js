@@ -12,6 +12,7 @@ async function fetchData() {
     sectionGallery.innerHTML="";
     getGallery(resultats);
     afficherProjets();
+    getChoixCategories();
 
     if (logged === null){
         getCategories(categoriesListe);
