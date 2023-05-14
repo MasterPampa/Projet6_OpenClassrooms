@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="stylesheet" href="./assets/sass/bouton.css">
 	<link rel="stylesheet" href="./assets/sass/modale.css">
-	<script src="./assets/scripts/logDisplay.js" defer></script>
 	<script src="./assets/scripts/gallery.js"></script>
+	<script src="./assets/scripts/logDisplay.js" defer></script>
 	<script src="./assets/scripts/modale.js" defer></script>
 	<script src="https://kit.fontawesome.com/273c7a012c.js" crossorigin="anonymous"></script>
 </head>
@@ -35,7 +35,7 @@
 			<i class="close fa-solid fa-lg fa-xmark"></i>
 		</div>
 		<h2>Ajout Photo</h2>
-		<form>
+		<form id="formulaireUpload">
 			<div class="importStyle">
 			<label><i class="importIcone fa-sharp fa-regular fa-image"></i></label>
 			<input id="inputLink" type="file" accept="image/jpeg, image/png" size="4194304" onchange="previewImage()">
@@ -48,11 +48,12 @@
 			
 			<label>Titre</label>
 			<br>
-			<input type="text">
+			<input id="titreProjet" type="text">
 			<br>
 			<label>Catégorie</label>
 			<br>
 			<select id="choixCategories">
+				<option></option>
 				<!--Import des choix via fetch-->
 			</select>
 			<br>

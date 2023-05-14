@@ -5,22 +5,21 @@ let sectionGallery ="";
 
 async function fetchData() {
     const response = await fetch("http://localhost:5678/api/works");
-    resultats = await response.json();
     const responseCat = await fetch("http://localhost:5678/api/categories");
+    resultats = await response.json();
     categoriesListe = await responseCat.json();
     
     sectionGallery.innerHTML="";
     getGallery(resultats);
-    afficherProjets();
-    getChoixCategories();
-
+    
     if (logged === null){
         getCategories(categoriesListe);
     }
 }
 fetchData();
 
-function getGallery(resultats) {
+async function getGallery(resultats) {
+
     for (let i = 0; i < resultats.length; i++){
 
         const travaux = resultats[i];
@@ -35,8 +34,8 @@ function getGallery(resultats) {
         sectionGallery.appendChild(figureElement)
         figureElement.appendChild(imageElement);
         figureElement.appendChild(figcaptionElement);
-    }
-}
+    };
+};
 
 function getCategories(categoriesListe) {
     for (let i = 0; i < categoriesListe.length; i++) {
@@ -50,9 +49,9 @@ function getCategories(categoriesListe) {
         filterElement.textContent = categories.name;
 
         sectionCategories.appendChild(filterElement);
-    }
+    };
     filterGallery();
-}
+};
 
 function filterGallery(){
     
@@ -80,23 +79,7 @@ function filterGallery(){
                 console.log(imagesFiltrees);
                 document.querySelector(".gallery").innerHTML ="";
                 getGallery(imagesFiltrees);
-            }
+            };
         });
     });
-}
-
-
-async function suppressionProjet() {
-    const accessToken = sessionStorage.getItem('accessToken');
-    
-    const response = await fetch('http://localhost:5678/api/works/'+projetSupprId, {
-        method:'DELETE',
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
-    });
-    if (response.ok){
-        modaleGallery.innerHTML="";
-        fetchData();
-    }
-}
+};
