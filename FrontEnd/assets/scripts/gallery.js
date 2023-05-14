@@ -3,6 +3,8 @@ let categoriesListe=[];
 const logged = sessionStorage.getItem('accessToken');
 let sectionGallery ="";
 
+/////////////// Récupération et traitement des données serveur //////////////
+
 async function fetchData() {
     const response = await fetch("http://localhost:5678/api/works");
     const responseCat = await fetch("http://localhost:5678/api/categories");
@@ -17,6 +19,8 @@ async function fetchData() {
     }
 }
 fetchData();
+
+////////////////// Affichage de la gallerie /////////////////////////////
 
 async function getGallery(resultats) {
 
@@ -36,6 +40,8 @@ async function getGallery(resultats) {
         figureElement.appendChild(figcaptionElement);
     };
 };
+
+///////////////// Données des catégories et filtres ////////////////////////////
 
 function getCategories(categoriesListe) {
     for (let i = 0; i < categoriesListe.length; i++) {
@@ -61,8 +67,6 @@ function filterGallery(){
 
         bouton.addEventListener('click', function() {
             const clickedId = bouton.id;
-            console.log('Clicked ID:', clickedId);
-
             filtreBouton.forEach(bouton => {
                 bouton.classList.remove('selection');
             });
@@ -76,7 +80,6 @@ function filterGallery(){
                     return image.categoryId == clickedId;
                 });
                 bouton.classList.add('selection');
-                console.log(imagesFiltrees);
                 document.querySelector(".gallery").innerHTML ="";
                 getGallery(imagesFiltrees);
             };

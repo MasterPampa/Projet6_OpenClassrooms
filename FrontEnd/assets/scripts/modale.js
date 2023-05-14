@@ -4,6 +4,8 @@ const fermerCroix = document.querySelectorAll('.fa-xmark');
 const fenetreModale = document.querySelector('.modale__window');
 const modaleGallery = document.getElementById('galleryModale');
 
+////////////Affichage premiere fenetre modale et gestion click en dehors///////
+
 afficherModale.addEventListener('click', function(){
     modale.style.visibility = 'visible';
     modaleGallery.innerHTML="";
@@ -24,8 +26,11 @@ modale.addEventListener('click',function(e){
     }
 });
 
+//////////////////Affichage des projets dans la modale//////////////////
 
 let supprIcone = "";
+let projetSupprId = "";
+
 function afficherProjets(){
 
     for (let i = 0; i < resultats.length; i++){
@@ -58,13 +63,12 @@ function afficherProjets(){
     };
 };
 
-let galleryModale = document.getElementById('galleryModale');
-let projetSupprId = "";
+/////////////////////Gestion visibilité de la modale //////////////////
 
-
-const ajoutProjetBouton = document.getElementById('ajoutProjetBouton');
 const ajoutProjetModale = document.getElementById('ajoutProjetModale');
 let ajoutProjetVisible = ajoutProjetModale.style.visibility='hidden';
+
+const ajoutProjetBouton = document.getElementById('ajoutProjetBouton');
 
 ajoutProjetBouton.addEventListener('click', function(){
     fenetreModale.style.visibility ='hidden';
@@ -159,7 +163,6 @@ function unloadPreview(){
     preview.src = '';
     previewContainer.style.visibility = 'hidden';
     fichierChargé = "";
-
 };
 
 ///////////////////////Validation Formulaire d'envoi///////////////////////////////////////////////////////////////////
@@ -173,13 +176,8 @@ let categorieChargé = "";
 async function formulaireValide (){
     if( fichierChargé === 1 && titreChargé === 1 && categorieChargé === 1 ){
         envoiProjet.style.backgroundColor = '#1D6154';
-        console.log("formulaire complet");
         envoiProjetServeur();
     }else{
-        console.log("formulaire non valide")
-        console.log(fichierChargé);
-        console.log(titreChargé);
-        console.log(categorieChargé);
         envoiProjet.style.backgroundColor = '#A7A7A7';
     };
 };
@@ -188,10 +186,8 @@ titreProjet.addEventListener('input', function() {
     if (titreProjet.value.trim() !== '') {
         titreChargé = 1;
         formulaireValide();
-        console.log("titre chargé");
     } else {
         titreChargé = 0;
-        console.log("titre non valide");
         formulaireValide();
     };
 });
@@ -199,24 +195,22 @@ input.addEventListener('change', function(){
     if (input.files && input.files[0]){
         fichierChargé = 1;
         formulaireValide();
-        console.log("fichier chargé");
     }else{
         fichierChargé = 0;
         formulaireValide();
-        console.log("fichier dechargé");
     };
 });
 choixCategorieListe.addEventListener('change', function(){
     if(choixCategorieListe.value !== ""){
         categorieChargé = 1;
-        console.log(choixCategorieListe.value);
         formulaireValide();
     }else{
         categorieChargé = 0;
         formulaireValide();
-        console.log("catégorie déchargé");
     };
 });
+
+///////////// Envoi vers le serveur du projet ////////////////////////////
 
 function envoiProjetServeur() {
     envoiProjet.addEventListener('click', async function boutonActif(e) {
@@ -244,7 +238,6 @@ function envoiProjetServeur() {
         unloadPreview();
         formulaireValide();
         modaleGallery.innerHTML = "";
-        galleryModale.innerHTML = "";
         fetchData();
         afficherProjets();
         getChoixCategories();

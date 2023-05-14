@@ -7,9 +7,7 @@ window.addEventListener('load', function() {
     let login = document.getElementById('login');
     const logged = sessionStorage.getItem('accessToken');
 
-    if (logged) {
-        console.log('Logged!')
-            
+    if (logged) {            
         login.classList.add('hidden');
         logout.addEventListener('click', function(){
             sessionStorage.removeItem('accessToken');
@@ -33,7 +31,6 @@ window.addEventListener('load', function() {
 
 
     } else {
-        console.log('notLogged!'),
         logout.classList.add('hidden');
     }
 });
