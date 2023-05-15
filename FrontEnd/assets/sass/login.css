@@ -20,6 +20,11 @@ main form input {
 main form #submit {
   font-size: 14px;
 }
+main form #submit:hover {
+  cursor: pointer;
+  background-color: #0E2F28;
+  color: white;
+}
 main form label {
   margin-top: 30px;
 }

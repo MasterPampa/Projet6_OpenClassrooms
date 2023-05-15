@@ -18,6 +18,11 @@ main{
         }
         #submit{
             font-size: 14px;
+            &:hover{
+                cursor: pointer;
+                background-color: #0E2F28;
+                color: white;
+            }
         }
         label{
             margin-top: 30px;

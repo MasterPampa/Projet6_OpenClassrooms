@@ -39,7 +39,7 @@
 			<div class="importStyle">
 			<label><i class="importIcone fa-sharp fa-regular fa-image"></i></label>
 			<input id="inputLink" type="file" accept="image/jpeg, image/png" size="4194304" onchange="previewImage()">
-			<a id="boutonUpload" class="bouton" href="#" onclick="document.getElementById('inputLink').click()">+ Ajouter photo</a>
+			<a id="boutonUpload" class="bouton bouton__gris" href="#" onclick="document.getElementById('inputLink').click()">+ Ajouter photo</a>
 			<p>jpg, png : 4mo max</p>
 			<div id="imagePreviewContainer">
 				<img id="imagePreview" src="#" alt="Aperçu de l'image">
@@ -59,7 +59,8 @@
 			<br>
 			<span></span>
 			<br>
-			<a href="#" id="envoiProjet" class="bouton">Valider</a>
+			<div id="erreur"></div>
+			<a href="#" id="envoiProjet" class="flexCenter formulaireInvalide">Valider</a>
 		</form>
 	</div>
 </div>
@@ -140,7 +141,7 @@
 			<input type="email" name="email" id="email">
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
+			<input id="contactSubmit" type="submit" value="Envoyer">
 		</form>
 	</section>
 </main>

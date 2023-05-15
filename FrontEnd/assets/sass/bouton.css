@@ -16,8 +16,18 @@
   font-weight: 700;
   line-height: 19px;
 }
+.bouton:hover {
+  cursor: pointer;
+  background-color: #0E2F28;
+  color: white;
+}
 
 .selection {
   color: white;
   background-color: #1D6154;
+}
+.selection:hover {
+  cursor: pointer;
+  background-color: #0E2F28;
+  color: white;
 }/*# sourceMappingURL=bouton.css.map */

@@ -154,7 +154,6 @@ function previewImage() {
         preview.src = "#";
         previewContainer.style.visibility = 'hidden';
         fichierChargé = "";
-
     };
 };
 
@@ -172,13 +171,13 @@ const envoiProjet = document.getElementById('envoiProjet');
 let fichierChargé = "";
 let titreChargé = "";
 let categorieChargé = "";
+let formValide = 0;
 
 async function formulaireValide (){
     if( fichierChargé === 1 && titreChargé === 1 && categorieChargé === 1 ){
-        envoiProjet.style.backgroundColor = '#1D6154';
-        envoiProjetServeur();
+        envoiProjet.classList.add('formulaireValide');
     }else{
-        envoiProjet.style.backgroundColor = '#A7A7A7';
+        envoiProjet.classList.remove('formulaireValide');
     };
 };
 
@@ -186,6 +185,7 @@ titreProjet.addEventListener('input', function() {
     if (titreProjet.value.trim() !== '') {
         titreChargé = 1;
         formulaireValide();
+        erreur.innerHTML="";
     } else {
         titreChargé = 0;
         formulaireValide();
@@ -195,6 +195,7 @@ input.addEventListener('change', function(){
     if (input.files && input.files[0]){
         fichierChargé = 1;
         formulaireValide();
+        erreur.innerHTML="";
     }else{
         fichierChargé = 0;
         formulaireValide();
@@ -204,6 +205,7 @@ choixCategorieListe.addEventListener('change', function(){
     if(choixCategorieListe.value !== ""){
         categorieChargé = 1;
         formulaireValide();
+        erreur.innerHTML="";
     }else{
         categorieChargé = 0;
         formulaireValide();
@@ -211,6 +213,7 @@ choixCategorieListe.addEventListener('change', function(){
 });
 
 ///////////// Envoi vers le serveur du projet ////////////////////////////
+const erreur = document.getElementById('erreur');
 
 function envoiProjetServeur() {
     envoiProjet.addEventListener('click', async function boutonActif(e) {
@@ -228,21 +231,28 @@ function envoiProjetServeur() {
             },
             body: formData,
         });
+        if(demande.ok) {
+            titreProjet.value = "";
+            choixCategorieListe.value = "";
+            titreChargé = "";
+            categorieChargé = "";
+            envoiProjet.style.backgroundColor = '#A7A7A7';
 
-        titreProjet.value = "";
-        choixCategorieListe.value = "";
-        titreChargé = "";
-        categorieChargé = "";
-        envoiProjet.style.backgroundColor = '#A7A7A7';
-
-        unloadPreview();
-        formulaireValide();
-        modaleGallery.innerHTML = "";
-        fetchData();
-        afficherProjets();
-        getChoixCategories();
-
-        // Supprime l'événement click du bouton d'envoi
-        envoiProjet.removeEventListener('click', boutonActif);
+            unloadPreview();
+            formulaireValide();
+            modaleGallery.innerHTML = "";
+            fetchData();
+            afficherProjets();
+            getChoixCategories();
+            
+            // Supprime l'événement click du bouton d'envoi
+            envoiProjet.removeEventListener('click', boutonActif);
+        }else {
+            erreur.style.color='red';
+            if( fichierChargé == 0 || titreChargé == 0 || categorieChargé == 0 ){
+                erreur.innerHTML="Erreur lors de la saisie."
+            }
+        }
     });
 }
+envoiProjetServeur();

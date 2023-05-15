@@ -157,10 +157,9 @@
                     color: #444444;
                 }
                 .bouton{
-                    color: #306685;
                     background-color: #CBD6DC;
+                    color: #306685;
                     border-color: #CBD6DC;
-                    margin: 20px 0 7px 0;
                 }
                 #imagePreviewContainer{
                     position: absolute;
@@ -201,13 +200,31 @@
             border-bottom: 1px solid #B3B3B3;
             margin-bottom: 10px;
             margin-top: 30px; 
-        };
-        .bouton{
-            width: 50%;
-            margin: auto;
-            background-color:#A7A7A7;
-            border-color: #A7A7A7;
-            color: white;
         }
+        
     }
+}
+.formulaireInvalide{
+    background-color: #A7A7A7;
+    color: white;
+    border-radius: 60px;
+    margin: auto;
+    width: 237px;
+    height: 36px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+.formulaireValide{
+    color: white;
+    background-color: #1D6154;
+    &:hover{
+        cursor: pointer;
+        background-color: #0E2F28;
+        color: white;
+    }
+}
+#erreur{
+    text-align: center;
+    margin: auto;
 }
