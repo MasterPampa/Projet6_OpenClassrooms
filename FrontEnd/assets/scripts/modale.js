@@ -80,7 +80,7 @@ if (ajoutProjetVisible.visibility = 'visible') {
     boutonRetour.addEventListener('click', function () {
         ajoutProjetModale.style.visibility = 'hidden';
         fenetreModale.style.visibility = 'visible';
-        unloadPreview();
+        viderApercu();
         miseAJourPage();
     });
 };
@@ -89,7 +89,7 @@ function fermerModale() {
     modale.style.visibility = 'hidden';
     ajoutProjetModale.style.visibility = 'hidden';
     fenetreModale.style.visibility = 'hidden';
-    unloadPreview();
+    viderApercu();
 };
 
 //////////////////////////Suppression Projet////////////////////////////////////////
@@ -132,49 +132,49 @@ function getChoixCategories() {
 };
 
 
-/////////////////////////Preview de l'image chargé/////////////////////////////////
+/////////////////////////apercu de l'image chargé/////////////////////////////////
 
-const previewContainer = document.getElementById("imagePreviewContainer");
-previewContainer.style.visibility = 'hidden';
+const apercuConteneur = document.getElementById("imagePreviewContainer");
+apercuConteneur.style.visibility = 'hidden';
 
 const input = document.getElementById('inputLink');
-const preview = document.getElementById("imagePreview");
+const apercu = document.getElementById("imagePreview");
 const boutonUpload = document.getElementById('boutonUpload');
 
 function previewImage() {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            preview.src = e.target.result;
+            apercu.src = e.target.result;
         };
-        fichierChargé = 1;
+        fichierCharger = 1;
         reader.readAsDataURL(input.files[0]);
-        previewContainer.style.visibility = 'visible';
+        apercuConteneur.style.visibility = 'visible';
     } else {
-        preview.src = "#";
-        previewContainer.style.visibility = 'hidden';
-        fichierChargé = "";
+        apercu.src = "#";
+        apercuConteneur.style.visibility = 'hidden';
+        fichierCharger = "";
     };
 };
 
-function unloadPreview() {
+function viderApercu() {
     input.value = '';
-    preview.src = '';
-    previewContainer.style.visibility = 'hidden';
-    fichierChargé = "";
+    apercu.src = '';
+    apercuConteneur.style.visibility = 'hidden';
+    fichierCharger = "";
 };
 
 ///////////////////////Validation Formulaire d'envoi///////////////////////////////////////////////////////////////////
 
 const titreProjet = document.getElementById('titreProjet');
 const envoiProjet = document.getElementById('envoiProjet');
-let fichierChargé = "";
-let titreChargé = "";
-let categorieChargé = "";
+let fichierCharger = "";
+let titreCharger = "";
+let categorieCharger = "";
 let formValide = 0;
 
 async function formulaireValide() {
-    if (fichierChargé === 1 && titreChargé === 1 && categorieChargé === 1) {
+    if (fichierCharger === 1 && titreCharger === 1 && categorieCharger === 1) {
         envoiProjet.classList.add('formulaireValide');
     } else {
         envoiProjet.classList.remove('formulaireValide');
@@ -183,31 +183,31 @@ async function formulaireValide() {
 
 titreProjet.addEventListener('input', function () {
     if (titreProjet.value.trim() !== '') {
-        titreChargé = 1;
+        titreCharger = 1;
         formulaireValide();
         erreur.innerHTML = "";
     } else {
-        titreChargé = 0;
+        titreCharger = 0;
         formulaireValide();
     };
 });
 input.addEventListener('change', function () {
     if (input.files && input.files[0]) {
-        fichierChargé = 1;
+        fichierCharger = 1;
         formulaireValide();
         erreur.innerHTML = "";
     } else {
-        fichierChargé = 0;
+        fichierCharger = 0;
         formulaireValide();
     };
 });
 choixCategorieListe.addEventListener('change', function () {
     if (choixCategorieListe.value !== "") {
-        categorieChargé = 1;
+        categorieCharger = 1;
         formulaireValide();
         erreur.innerHTML = "";
     } else {
-        categorieChargé = 0;
+        categorieCharger = 0;
         formulaireValide();
     };
 });
@@ -234,11 +234,11 @@ function envoiProjetServeur() {
         if (demande.ok) {
             titreProjet.value = "";
             choixCategorieListe.value = "";
-            titreChargé = "";
-            categorieChargé = "";
+            titreCharger = "";
+            categorieCharger = "";
             envoiProjet.style.backgroundColor = '#A7A7A7';
 
-            unloadPreview();
+            viderApercu();
             formulaireValide();
             modaleGallery.innerHTML = "";
             fetchData();
@@ -249,7 +249,7 @@ function envoiProjetServeur() {
             envoiProjet.removeEventListener('click', boutonActif);
         } else {
             erreur.style.color = 'red';
-            if (fichierChargé == 0 || titreChargé == 0 || categorieChargé == 0) {
+            if (fichierCharger == 0 || titreCharger == 0 || categorieCharger == 0) {
                 erreur.innerHTML = "Erreur lors de la saisie."
             }
         }

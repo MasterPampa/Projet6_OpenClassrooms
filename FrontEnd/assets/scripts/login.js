@@ -7,13 +7,13 @@ window.addEventListener('load', function () {
 
         const email = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        const demande = await fetch("http://" + window.location.hostname + ":5678/api/users/login", {
+        const response = await fetch("http://" + window.location.hostname + ":5678/api/users/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
         });
-        if (demande.ok) {
-            const data = await demande.json();
+        if (response.ok) {
+            const data = await response.json();
             sessionStorage.setItem('accessToken', data.token);
             window.location.href = "http://" + window.location.hostname + ":5500/FrontEnd/index.html";
         } else {
