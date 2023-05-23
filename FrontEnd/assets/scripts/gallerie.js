@@ -1,6 +1,6 @@
 let resultats = [];
 let categoriesListe = [];
-const logged = sessionStorage.getItem('accessToken');
+const connecter = sessionStorage.getItem('accessToken');
 let sectionGallery = "";
 
 /////////////// Récupération et traitement des données serveur //////////////
@@ -14,7 +14,7 @@ async function fetchData() {
     sectionGallery.innerHTML = "";
     getGallery(resultats);
 
-    if (logged === null) {
+    if (connecter === null) {
         getCategories(categoriesListe);
     }
 }
