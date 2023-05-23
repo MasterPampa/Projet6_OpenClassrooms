@@ -1,7 +1,7 @@
-let resultats=[];
-let categoriesListe=[];
+let resultats = [];
+let categoriesListe = [];
 const logged = sessionStorage.getItem('accessToken');
-let sectionGallery ="";
+let sectionGallery = "";
 
 /////////////// Récupération et traitement des données serveur //////////////
 
@@ -10,11 +10,11 @@ async function fetchData() {
     const responseCat = await fetch("http://localhost:5678/api/categories");
     resultats = await response.json();
     categoriesListe = await responseCat.json();
-    
-    sectionGallery.innerHTML="";
+
+    sectionGallery.innerHTML = "";
     getGallery(resultats);
-    
-    if (logged === null){
+
+    if (logged === null) {
         getCategories(categoriesListe);
     }
 }
@@ -24,7 +24,7 @@ fetchData();
 
 async function getGallery(resultats) {
 
-    for (let i = 0; i < resultats.length; i++){
+    for (let i = 0; i < resultats.length; i++) {
 
         const travaux = resultats[i];
 
@@ -59,13 +59,13 @@ function getCategories(categoriesListe) {
     filterGallery();
 };
 
-function filterGallery(){
-    
+function filterGallery() {
+
     const filtreBouton = document.querySelectorAll('.bouton');
 
     filtreBouton.forEach(bouton => {
 
-        bouton.addEventListener('click', function() {
+        bouton.addEventListener('click', function () {
             const clickedId = bouton.id;
             filtreBouton.forEach(bouton => {
                 bouton.classList.remove('selection');
@@ -75,12 +75,12 @@ function filterGallery(){
                 document.querySelector(".gallery").innerHTML = "";
                 bouton.classList.add('selection');
                 getGallery(resultats);
-            } else {    
-                let imagesFiltrees = resultats.filter(function (image){
+            } else {
+                let imagesFiltrees = resultats.filter(function (image) {
                     return image.categoryId == clickedId;
                 });
                 bouton.classList.add('selection');
-                document.querySelector(".gallery").innerHTML ="";
+                document.querySelector(".gallery").innerHTML = "";
                 getGallery(imagesFiltrees);
             };
         });

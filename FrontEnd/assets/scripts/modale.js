@@ -6,22 +6,22 @@ const modaleGallery = document.getElementById('galleryModale');
 
 ////////////Affichage premiere fenetre modale et gestion click en dehors///////
 
-afficherModale.addEventListener('click', function(){
+afficherModale.addEventListener('click', function () {
     modale.style.visibility = 'visible';
-    modaleGallery.innerHTML="";
+    modaleGallery.innerHTML = "";
     afficherProjets();
     fenetreModale.style.visibility = 'visible';
     getChoixCategories();
 });
 
 fermerCroix.forEach(element => {
-    element.addEventListener('click', function(){
+    element.addEventListener('click', function () {
         fermerModale()
     });
 });
 
-modale.addEventListener('click',function(e){
-    if (e.target === modale ){
+modale.addEventListener('click', function (e) {
+    if (e.target === modale) {
         fermerModale()
     }
 });
@@ -31,9 +31,9 @@ modale.addEventListener('click',function(e){
 let supprIcone = "";
 let projetSupprId = "";
 
-function afficherProjets(){
+function afficherProjets() {
 
-    for (let i = 0; i < resultats.length; i++){
+    for (let i = 0; i < resultats.length; i++) {
 
         const travaux = resultats[i];
 
@@ -41,12 +41,12 @@ function afficherProjets(){
         const modaleGalleryImage = document.createElement('img');
         const editImage = document.createElement('figcaption');
         editImage.textContent = "éditer";
-        
+
         supprIcone = document.createElement('i');
         supprIcone.classList.add('fa-solid', 'fa-trash-can', 'fa-sm', 'icone');
         figureModale.id = travaux.id;
         const flecheIcone = document.createElement('i');
-        flecheIcone.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'fa-sm','icone','fleche');
+        flecheIcone.classList.add('fa-solid', 'fa-arrows-up-down-left-right', 'fa-sm', 'icone', 'fleche');
 
         modaleGalleryImage.src = travaux.imageUrl;
         modaleGallery.appendChild(figureModale);
@@ -55,7 +55,7 @@ function afficherProjets(){
         figureModale.appendChild(supprIcone);
         figureModale.appendChild(flecheIcone);
 
-        supprIcone.addEventListener('click', function(e) {
+        supprIcone.addEventListener('click', function (e) {
             const projetId = e.target.parentNode.id;
             projetSupprId = projetId;
             suppressionProjet();
@@ -66,18 +66,18 @@ function afficherProjets(){
 /////////////////////Gestion visibilité de la modale //////////////////
 
 const ajoutProjetModale = document.getElementById('ajoutProjetModale');
-let ajoutProjetVisible = ajoutProjetModale.style.visibility='hidden';
+let ajoutProjetVisible = ajoutProjetModale.style.visibility = 'hidden';
 
 const ajoutProjetBouton = document.getElementById('ajoutProjetBouton');
 
-ajoutProjetBouton.addEventListener('click', function(){
-    fenetreModale.style.visibility ='hidden';
-    ajoutProjetModale.style.visibility='visible';
+ajoutProjetBouton.addEventListener('click', function () {
+    fenetreModale.style.visibility = 'hidden';
+    ajoutProjetModale.style.visibility = 'visible';
 });
 
-if (ajoutProjetVisible.visibility = 'visible'){
+if (ajoutProjetVisible.visibility = 'visible') {
     const boutonRetour = document.getElementById('retour');
-    boutonRetour.addEventListener('click', function(){
+    boutonRetour.addEventListener('click', function () {
         ajoutProjetModale.style.visibility = 'hidden';
         fenetreModale.style.visibility = 'visible';
         unloadPreview();
@@ -85,7 +85,7 @@ if (ajoutProjetVisible.visibility = 'visible'){
     });
 };
 
-function fermerModale(){
+function fermerModale() {
     modale.style.visibility = 'hidden';
     ajoutProjetModale.style.visibility = 'hidden';
     fenetreModale.style.visibility = 'hidden';
@@ -96,9 +96,9 @@ function fermerModale(){
 const accessToken = sessionStorage.getItem('accessToken');
 
 async function suppressionProjet() {
-    
-    const response = await fetch('http://localhost:5678/api/works/'+projetSupprId, {
-        method:'DELETE',
+
+    const response = await fetch('http://localhost:5678/api/works/' + projetSupprId, {
+        method: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + accessToken
         }
@@ -115,14 +115,14 @@ async function miseAJourPage() {
 let choixCategorieListe = document.getElementById('choixCategories');
 let categories = "";
 
-function getChoixCategories(){
+function getChoixCategories() {
 
     choixCategorieListe.innerHTML = '';
     const optionVide = document.createElement("option");
     choixCategorieListe.appendChild(optionVide);
 
     for (let i = 0; i < categoriesListe.length; i++) {
-        
+
         categories = categoriesListe[i];
         const selectionCategorie = document.createElement("option");
         choixCategorieListe.appendChild(selectionCategorie);
@@ -144,9 +144,9 @@ const boutonUpload = document.getElementById('boutonUpload');
 function previewImage() {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             preview.src = e.target.result;
-      };
+        };
         fichierChargé = 1;
         reader.readAsDataURL(input.files[0]);
         previewContainer.style.visibility = 'visible';
@@ -157,7 +157,7 @@ function previewImage() {
     };
 };
 
-function unloadPreview(){
+function unloadPreview() {
     input.value = '';
     preview.src = '';
     previewContainer.style.visibility = 'hidden';
@@ -173,40 +173,40 @@ let titreChargé = "";
 let categorieChargé = "";
 let formValide = 0;
 
-async function formulaireValide (){
-    if( fichierChargé === 1 && titreChargé === 1 && categorieChargé === 1 ){
+async function formulaireValide() {
+    if (fichierChargé === 1 && titreChargé === 1 && categorieChargé === 1) {
         envoiProjet.classList.add('formulaireValide');
-    }else{
+    } else {
         envoiProjet.classList.remove('formulaireValide');
     };
 };
 
-titreProjet.addEventListener('input', function() {
+titreProjet.addEventListener('input', function () {
     if (titreProjet.value.trim() !== '') {
         titreChargé = 1;
         formulaireValide();
-        erreur.innerHTML="";
+        erreur.innerHTML = "";
     } else {
         titreChargé = 0;
         formulaireValide();
     };
 });
-input.addEventListener('change', function(){
-    if (input.files && input.files[0]){
+input.addEventListener('change', function () {
+    if (input.files && input.files[0]) {
         fichierChargé = 1;
         formulaireValide();
-        erreur.innerHTML="";
-    }else{
+        erreur.innerHTML = "";
+    } else {
         fichierChargé = 0;
         formulaireValide();
     };
 });
-choixCategorieListe.addEventListener('change', function(){
-    if(choixCategorieListe.value !== ""){
+choixCategorieListe.addEventListener('change', function () {
+    if (choixCategorieListe.value !== "") {
         categorieChargé = 1;
         formulaireValide();
-        erreur.innerHTML="";
-    }else{
+        erreur.innerHTML = "";
+    } else {
         categorieChargé = 0;
         formulaireValide();
     };
@@ -231,7 +231,7 @@ function envoiProjetServeur() {
             },
             body: formData,
         });
-        if(demande.ok) {
+        if (demande.ok) {
             titreProjet.value = "";
             choixCategorieListe.value = "";
             titreChargé = "";
@@ -244,13 +244,13 @@ function envoiProjetServeur() {
             fetchData();
             afficherProjets();
             getChoixCategories();
-            
+
             // Supprime l'événement click du bouton d'envoi
             envoiProjet.removeEventListener('click', boutonActif);
-        }else {
-            erreur.style.color='red';
-            if( fichierChargé == 0 || titreChargé == 0 || categorieChargé == 0 ){
-                erreur.innerHTML="Erreur lors de la saisie."
+        } else {
+            erreur.style.color = 'red';
+            if (fichierChargé == 0 || titreChargé == 0 || categorieChargé == 0) {
+                erreur.innerHTML = "Erreur lors de la saisie."
             }
         }
     });

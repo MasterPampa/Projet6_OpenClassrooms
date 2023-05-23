@@ -1,5 +1,5 @@
-window.addEventListener('load', function() {
-    
+window.addEventListener('load', function () {
+
     let banniereEdition = document.getElementById('edition');
     let banniere = document.getElementById('banniere');
     let modifier = document.querySelectorAll('.modifier');
@@ -7,11 +7,11 @@ window.addEventListener('load', function() {
     let login = document.getElementById('login');
     const logged = sessionStorage.getItem('accessToken');
 
-    if (logged) {            
+    if (logged) {
         login.classList.add('hidden');
-        logout.addEventListener('click', function(){
+        logout.addEventListener('click', function () {
             sessionStorage.removeItem('accessToken');
-            
+
             location.reload();
         })
 

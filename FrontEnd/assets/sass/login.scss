@@ -1,50 +1,58 @@
-main{
+main {
     margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    form{
+
+    form {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        input{
+
+        input {
             border: none;
             width: 379px;
             height: 51px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
             font-size: 25px;
         }
-        #submit{
+
+        #submit {
             font-size: 14px;
-            &:hover{
+
+            &:hover {
                 cursor: pointer;
                 background-color: #0E2F28;
                 color: white;
             }
         }
-        label{
+
+        label {
             margin-top: 30px;
         }
     }
-    .login__alts{
+
+    .login__alts {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        .forget{
+
+        .forget {
             color: black;
             margin-top: 28px;
         }
     }
 }
-footer{
+
+footer {
     font-size: 14px;
     position: absolute;
     bottom: 50px;
     right: 50px;
-    a{
+
+    a {
         color: black;
         text-decoration: none;
     }

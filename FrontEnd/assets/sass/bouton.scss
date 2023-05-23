@@ -1,34 +1,37 @@
 $mainGreen : #1D6154;
 
-.filter{
+.filter {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
     margin-bottom: 60px;
 }
-.bouton{
-        padding: 10px 20px;
-        font-size: 16px;
-        font-family: 'Work Sans';
-        border: 1px solid $mainGreen;
-        border-radius: 60px;
-        text-align: center;
-        font-weight: 700;
-        line-height: 19px;
 
-        &:hover{
-            cursor: pointer;
-            background-color: #0E2F28;
-            color: white;
-        }
-    }
-.selection{
+.bouton {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Work Sans';
+    border: 1px solid $mainGreen;
+    border-radius: 60px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 19px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #0E2F28;
         color: white;
-        background-color: $mainGreen;
-        &:hover{
-            cursor: pointer;
-            background-color: #0E2F28;
-            color: white;
-        }
     }
+}
+
+.selection {
+    color: white;
+    background-color: $mainGreen;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #0E2F28;
+        color: white;
+    }
+}
