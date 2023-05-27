@@ -176,9 +176,12 @@ let formValide = 0;
 async function formulaireValide() {
     if (fichierCharger === 1 && titreCharger === 1 && categorieCharger === 1) {
         envoiProjet.classList.add('formulaireValide');
-    } else {
+        envoiProjet.classList.remove('formulaireInvalide');
+    } else if (fichierCharger == 0 || titreCharger == 0 || categorieCharger == 0){
         envoiProjet.classList.remove('formulaireValide');
+        envoiProjet.classList.add('formulaireInvalide');
     };
+    console.log(fichierCharger + titreCharger + categorieCharger)
 };
 
 titreProjet.addEventListener('input', function () {
@@ -236,17 +239,16 @@ function envoiProjetServeur() {
             choixCategorieListe.value = "";
             titreCharger = "";
             categorieCharger = "";
-            envoiProjet.style.backgroundColor = '#A7A7A7';
 
             viderApercu();
-            formulaireValide();
             modaleGallery.innerHTML = "";
             fetchData();
             afficherProjets();
             getChoixCategories();
+            formulaireValide();
 
-            // Supprime l'événement click du bouton d'envoi
-            envoiProjet.removeEventListener('click', boutonActif);
+            erreur.style.color = 'green';
+            erreur.innerHTML = "Projet envoyé !";
         } else {
             erreur.style.color = 'red';
             if (fichierCharger == 0 || titreCharger == 0 || categorieCharger == 0) {

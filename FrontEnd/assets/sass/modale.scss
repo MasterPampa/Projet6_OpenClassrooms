@@ -239,10 +239,7 @@
 
     }
 }
-
-.formulaireInvalide {
-    background-color: #A7A7A7;
-    color: white;
+.formulaireBouton{
     border-radius: 60px;
     margin: auto;
     width: 237px;
@@ -250,6 +247,10 @@
     text-align: center;
     text-decoration: none;
     font-weight: 700;
+}
+.formulaireInvalide {
+    background-color: #A7A7A7;
+    color: white;
 }
 
 .formulaireValide {
@@ -266,4 +267,6 @@
 #erreur {
     text-align: center;
     margin: auto;
+    margin-top: -10px;
+    margin-bottom: 5px;
 }

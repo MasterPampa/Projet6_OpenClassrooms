@@ -14,7 +14,7 @@ async function fetchData() {
     sectionGallery.innerHTML = "";
     getGallery(resultats);
 
-    if (connecter === null) {
+    if (connecter === null) { // empecher la demande serveur pour avoir les catégories, inutile quand connecté
         getCategories(categoriesListe);
     }
 }
